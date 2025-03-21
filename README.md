@@ -12,14 +12,16 @@
 |선택한 일정 삭제|`DELETE`|`/api/schedule/{scheduleID}`|`요청 param`|-|`200 : 정상 삭제`|
 
 ## 스케줄러 ERD
-![화면 캡처 2025-03-21 170907](https://github.com/user-attachments/assets/5cf4b2b1-d6da-4480-a90f-a77f7629deda)
+![화면 캡처 2025-03-21 205020](https://github.com/user-attachments/assets/e6fbb81d-6af6-43df-bba0-ae877f633ae5)
 
 ## 스케줄러 SQL
 ```
 CREATE TABLE schedule_post (
-    id INT NOT NULL PRIMARY KEY, 
-    title VARCHAR(100) NOT NULL, 
-    detail VARCHAR(100) NOT NULL, 
-    schedule_date DATE NOT NULL 
+	id INT(10) NOT NULL PRIMARY KEY,
+	schedule VARCHAR(255) NOT NULL,
+	name VARCHAR(10) NOT NULL,
+	password VARCHAR(30) NOT NULL,
+	creation_date DATE NOT NULL,
+	modification_date DATE NULL, 
 );
 ```
