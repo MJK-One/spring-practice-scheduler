@@ -1,1 +1,25 @@
-# spring-pratice-scheduler
+# spring-practice-scheduler
+<br>
+
+# 기본 스케줄러  
+## 스케줄러 API
+|기능|Method|URL|request|response|상태조회|
+|---|---|---|---|---|---|
+|일정 생성|`POST`|`/api/schedule/add`|`요청 body`<br>json<br>{<br>  "id": "고유값",<br>  "title": "제목",<br>  "detail": "내용",<br>  "date": "날짜"<br>}<br>|등록정보|`200 : 정상 등록`|
+|전체 일정 조회|`GET`|`/api/schedule`|`요청 param`|다건 응답 정보|`200 : 정상 조회`|
+|선택 일정 조회|`GET`|`/api/schedule/{scheduleID}`|`요청 param`|단건 응답 정보<br>json<br>{<br>  "id": "고유값",<br>  "title": "제목",<br>  "detail": "내용",<br>  "date": "날짜"<br>}<br>|`200 : 정상 조회`|
+|선택한 일정 수정|`PUT`|`/api/schedule/{scheduleID}`|`요청 body`|수정 정보|`200 : 정상 수정`|
+|선택한 일정 삭제|`DELETE`|`/api/schedule/{scheduleID}`|`요청 param`|-|`200 : 정상 삭제`|
+
+## 스케줄러 ERD
+![화면 캡처 2025-03-21 170907](https://github.com/user-attachments/assets/5cf4b2b1-d6da-4480-a90f-a77f7629deda)
+
+## 스케줄러 SQL
+```
+CREATE TABLE schedule_post (
+    id INT NOT NULL PRIMARY KEY, 
+    title VARCHAR(100) NOT NULL, 
+    detail VARCHAR(100) NOT NULL, 
+    schedule_date DATE NOT NULL 
+);
+```
